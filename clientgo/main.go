@@ -96,7 +96,7 @@ func tst_2() {
 		fmt.Println("aaaaaaaaaaaaaaaaa")
 
 		fmt.Printf("firstval=%d\n", <-chtmp)
-		close(chtmp)
+		// close(chtmp)
 		chtmp <- 2
 		fmt.Printf("secondval=%d\n", <-chtmp)
 
@@ -109,6 +109,10 @@ func tst_2() {
 }
 
 func main() {
+
+	entry_time_fun()
+
+	return
 
 	tst_2()
 	// tst_1()
