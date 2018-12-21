@@ -13,7 +13,7 @@ func tst_time_1() {
 
 	fmt.Println("curtime=", time.Now())
 	<-t1.C
-	fmt.Println("t1 expire, curtime=", time.Now())
+	fmt.Println("curtime=", time.Now(), " t1 is expired")
 }
 
 func tst_time_2() {
@@ -41,6 +41,17 @@ func tst_time_2() {
 	// fmt.Println("t1 expire, curtime=", time.Now())
 }
 
+func tst_time_3() {
+	ticker := time.NewTicker(time.Second * 1)
+	wrapGo(func() {
+
+		for t := range ticker.C {
+			fmt.Println("Ticker at: ", t)
+		}
+
+	})
+	select {}
+}
 func entry_time_fun() {
-	tst_time_2()
+	tst_time_1()
 }
