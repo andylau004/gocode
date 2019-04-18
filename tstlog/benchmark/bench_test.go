@@ -50,19 +50,19 @@ func Benchmark_xxx_1(b *testing.B) {
 
 func Benchmark_WriteLogFile_1(b *testing.B) {
 
-	{ // 非json方式
-		dls_zap_nojson := tstlog.NewZapLogger_nojson()
-		defer dls_zap_nojson.Sync() // flushes buffer, if any
-		b.Run("zap_fun--Benchmark_WriteLogFile--Text", func(b *testing.B) {
-			b.ResetTimer()
-			b.RunParallel(func(pb *testing.PB) {
-				for pb.Next() {
-					str := tstlog.GetMessage(tstlog.GenerateRangeNum(0, 1000))
-					dls_zap_nojson.Infof("Hello route usr:%s", str)
-				}
-			})
-		})
-	}
+	// { // 非json方式
+	// 	dls_zap_nojson := tstlog.NewZapLogger_nojson()
+	// 	defer dls_zap_nojson.Sync() // flushes buffer, if any
+	// 	b.Run("zap_fun--Benchmark_WriteLogFile--Text", func(b *testing.B) {
+	// 		b.ResetTimer()
+	// 		b.RunParallel(func(pb *testing.PB) {
+	// 			for pb.Next() {
+	// 				str := tstlog.GetMessage(tstlog.GenerateRangeNum(0, 1000))
+	// 				dls_zap_nojson.Infof("Hello route usr:%s", str)
+	// 			}
+	// 		})
+	// 	})
+	// }
 
 	{ // 非json方式
 		// tstlog.Init_blog4goFun()
@@ -94,18 +94,18 @@ func Benchmark_WriteLogFile_1(b *testing.B) {
 		// })
 	}
 
-	{ // 非json方式
-		// tstlog.Init_seelogFun()
-		b.Run("seelog--Benchmark_WriteLogFile--Text", func(b *testing.B) {
-			b.ResetTimer()
-			b.RunParallel(func(pb *testing.PB) {
-				for pb.Next() {
-					str := tstlog.GetMessage(tstlog.GenerateRangeNum(0, 1000))
-					seelog.Infof("Hello route usr:%s", str)
-				}
-			})
-		})
-	}
+	// { // 非json方式
+	// 	// tstlog.Init_seelogFun()
+	// 	b.Run("seelog--Benchmark_WriteLogFile--Text", func(b *testing.B) {
+	// 		b.ResetTimer()
+	// 		b.RunParallel(func(pb *testing.PB) {
+	// 			for pb.Next() {
+	// 				str := tstlog.GetMessage(tstlog.GenerateRangeNum(0, 1000))
+	// 				seelog.Infof("Hello route usr:%s", str)
+	// 			}
+	// 		})
+	// 	})
+	// }
 
 }
 

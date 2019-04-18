@@ -1,4 +1,6 @@
-package tstlog
+// package tstlog
+package main
+
 
 import (
 	"fmt"
@@ -123,7 +125,7 @@ func Index(ctx *fasthttp.RequestCtx) {
 	// fmt.Fprint(ctx, "Welcome!\n")
 	// zap_sugar.Info("Welcome Index")
 	// zap_logger_json.Info("Welcome Index")
-	// blg4go.Info("Welcome Index")
+	blg4go.Info("Welcome Index")
 }
 func Hello(ctx *fasthttp.RequestCtx) {
 	// str := fmt.Sprintf("%v", ctx.UserValue("name"))
@@ -133,9 +135,11 @@ func Hello(ctx *fasthttp.RequestCtx) {
 
 	// zap_sugar.Infof("hello! usr:%s", str)
 	// dls_zap_nojson.Infof("Hello route usr:%s", str)
-	zap_logger_json.Info("Hello route", zap.String("usr", str))
+	// zap_logger_json.Info("Hello route", zap.String("usr", str))
 
-	// blg4go.Infof("Hello route usr:%s", str)
+	blg4go.Infof("Hello route usr:%s", str)
+	blg4go.Warnf("wwwwwwwwwwwwwwwwww usr:%s", str)
+	blg4go.Errorf("eeeeeeeeeeeeeeeeeeee usr:%s", str)
 
 	// seelog.Info("Hello route usr:", str)
 
@@ -147,6 +151,9 @@ func StartHttpSrv_zap() {
 
 	router.GET("/", Index)
 	router.GET("/hello/:name", Hello)
+
+	blg4go.Critical("Critical", 6)
+	blg4go.Criticalf("Criticalf=%d\n", 666666666666)
 
 	log.Fatal(fasthttp.ListenAndServe(":8081", router.Handler))
 }

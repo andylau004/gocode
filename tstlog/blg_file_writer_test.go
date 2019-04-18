@@ -1,1 +1,2 @@
-package tstlog
+// package tstlog
+package main

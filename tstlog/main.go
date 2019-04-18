@@ -1,4 +1,5 @@
-package tstlog
+// package tstlog
+package main
 
 import (
 	"encoding/json"
@@ -10,8 +11,8 @@ import (
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	
 	lumberjack "gopkg.in/natefinch/lumberjack.v2"
-
 	blg4go "github.com/YoungPioneers/blog4go"
 )
 
@@ -259,7 +260,7 @@ func main() {
 
 	// tst_sugar_printf_console()
 	// return
-
+																														
 	// tst_5()
 	// return
 
@@ -281,7 +282,7 @@ func main() {
 	namePtr := flag.String("l", "l", "日志类型: zap使用zap方式打印;std使用标准方式打印;")
 	flag.Parse()
 
-	args := flag.Args()
+	args := flag.Args()				
 	fmt.Println("name:", *namePtr)
 	fmt.Println("args:", args)
 	fmt.Println("os.Args=", os.Args)

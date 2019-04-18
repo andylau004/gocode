@@ -5,6 +5,9 @@
 
 
 <blog4go minlevel="debug">
+	<filter levels="warn">
+		<rotatefile path="./logs/warn.log" type="time" retentions="5"></rotatefile>
+	</filter>
 	<filter levels="trace">
 		<rotatefile path="./logs/trace.log" type="time" retentions="5"></rotatefile>
 	</filter>
@@ -14,7 +17,8 @@
 	<filter levels="info">
 	<!-- size=50M -->
 		<!-- <rotatefile path="./logs/info.log" type="size" rotateSize="50000000" type="time" retentions="10"></rotatefile> -->
-		<rotatefile path="./logs/info.log" type="size" rotateSize="50000000" retentions="10"></rotatefile>
+		<!-- <rotatefile path="./logs/info.log" type="size" rotateSize="50000000" retentions="10"></rotatefile> -->
+		<rotatefile path="./logs/info.log" type="size" retentions="5"></rotatefile>
 	</filter>
 	<filter levels="error">
 		<rotatefile path="./logs/error.log" type="time" retentions="5"></rotatefile>

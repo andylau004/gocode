@@ -1,4 +1,6 @@
-package tstlog
+// package tstlog
+package main
+
 
 import (
 	"go.uber.org/zap"
